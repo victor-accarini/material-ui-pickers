@@ -5,6 +5,7 @@ import Calendar from './Calendar';
 import YearSelection from './YearSelection';
 import PickerToolbar from '../_shared/PickerToolbar';
 import ToolbarButton from '../_shared/ToolbarButton';
+import ToolbarTitle from '../_shared/ToolbarTitle';
 import DomainPropTypes from '../constants/prop-types';
 import withUtils from '../_shared/WithUtils';
 
@@ -83,12 +84,21 @@ export class DatePicker extends PureComponent {
       utils,
       shouldDisableDate,
       allowKeyboardControl,
+      title,
     } = this.props;
     const { showYearSelection } = this.state;
 
     return (
       <Fragment>
         <PickerToolbar>
+          {
+            title
+              &&
+                <ToolbarTitle
+                  variant="heading"
+                  text={title}
+                />
+          }
           <ToolbarButton
             variant="subheading"
             onClick={this.openYearSelection}
